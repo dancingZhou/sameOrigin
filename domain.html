@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>我是页面1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      body {
+        background: #f3f3f3;
+      }
+
+      iframe {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="data">
+        我在 a.example.com 下
+    </p>
+    <iframe id="ifra" src="http://www.abc.com:8899/domain1.html"></iframe>
+    <script>
+        // 为什么这里也要设置，因为document.domain的设置会覆盖掉端口信息，并且js中没有方法设置端口信息，所以这里也设置一遍覆盖掉端口信息，这样就和iframe中的页面一致了
+        document.domain = 'abc.com'
+        var ifra = document.getElementById('ifra');
+        ifra.onload = function(){
+          console.log(111)
+            console.log( ifra.contentWindow.document.getElementById('data').innerHTML ); // 我是b.example.com下的
+        }
+    </script>
+</body>
+</html>

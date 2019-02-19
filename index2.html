@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>我是页面1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+body {
+  background: #ccc;
+}
+    </style>
+  </head>
+  <body>
+    <p style="text-align: right; font-size: 18px;">我在iframe中并且来自8800</p>
+    <p>当前的hash是<span style="background: yellow;" id="hashCon"></span></p>
+    <script>
+      function catchHash (str) {
+        let a = str.match(/#.*/)
+        return a ? (a[0] ? a[0] : '#') : ''
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        let hashDOM = document.querySelector('#hashCon')
+        window.addEventListener('hashchange', function (ev) {
+          setHash(decodeURIComponent(window.location.hash))
+        })
+
+        setHash(window.location.hash)
+
+        function setHash (txt) {
+          hashDOM.innerHTML = txt
+        }
+      })
+    </script>
+  </body>
+</html>

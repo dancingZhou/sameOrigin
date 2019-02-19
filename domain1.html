@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <title>跨域DEMO --- document.domain</title>
+    </head>
+    <body>
+        <p id="data">
+            我是www.abc.com下的
+        </p>
+        <script>
+          	document.domain = 'abc.com'
+            // console.log( parent.document.getElementById('data').innerHTML ); // 我在 a.example.com 下
+        </script>
+    </body>
+</html>

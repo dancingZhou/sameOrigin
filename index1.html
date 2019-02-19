@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>我是页面1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+body {
+  background: #f3f3f3;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+}
+    </style>
+  </head>
+  <body>
+    <p style="text-align: right; font-size: 18px;">我在8899下</p>
+    <label for="hash">设置iframe的hash值</label>
+    <input value="aaa" id="hash" type="text" />
+    <p></p>
+    <iframe src="http://localhost:8800/index2.html#aaa" id="iframe" frameborder="0"></iframe>
+    <script>
+function setHash (str, hash) {
+  return str.replace(/#.*/, '#' + hash)
+}
+document.addEventListener('DOMContentLoaded', function () {
+  let _input = document.querySelector('#hash')
+  let _iframe = document.querySelector('iframe')
+  _input.addEventListener('input', function (ev) {
+  let _txt = setHash(iframe.src, encodeURIComponent(ev.target.value.trim()))
+    iframe.src = _txt
+  })
+})
+    </script>
+  </body>
+</html>
