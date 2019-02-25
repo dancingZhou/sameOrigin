@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <meta charset="utf8"/>
+    <title>跨域DEMO --- window.postMessage</title>
+  </head>
+  <body>
+    <script>
+        window.addEventListener('message', function (messageEvent) {
+            console.log( messageEvent.data ); // 我来自example.com
+        }, false)
+    </script>
+  </body>
+</html>

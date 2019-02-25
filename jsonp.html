@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta charset="utf8"/>
+    <title>跨域DEMO --- jsonp</title>
+  </head>
+  <body>
+  <script>
+      function callback (data) {
+        console.log(data) // 上面的加载完成之后就会打印出后台传过来的数据 "数据"
+    }    
+  </script>
+  <script src="http://www.abc.com:8899/jsonp?arg=val1&jsonp=callback"></script>
+  </body>
+</html>
+

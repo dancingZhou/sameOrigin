@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta charset="utf8"/>
+    <title>跨域DEMO --- window.postMessage</title>
+  </head>
+  <body>
+    <iframe id="ifra" src="http://abc.com:8899/postMessage1.html"></iframe>
+    <script>
+      var ifra = document.getElementById('ifra')
+        ifra.onload = function () {
+            ifra.contentWindow.postMessage('我来自example.com', 'http://abc.com:8899')
+        }
+    </script>
+  </body>
+</html>

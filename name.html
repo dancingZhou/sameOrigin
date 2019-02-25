@@ -7,16 +7,16 @@
     <body>
         <iframe style="height: 0; visibility: hidden;" id="ifra" src="http://abc.com:8899/name1.html"></iframe>
         <script>
-            var retData = false;
+          var retData = false;
         	var ifra = document.getElementById('ifra');
-            ifra.onload = function(){
-                if( !retData ){
-                    ifra.src = 'http://abc.com:8899/name.html'
-                    retData = true;
-                }else{
-                    console.log( ifra.contentWindow.name ); // 我在example2.com下
-                }
-            }
+          ifra.onload = function(){
+              if( !retData ){
+                  ifra.src = 'http://www.abc.com:8899/name.html'
+                  retData = true;
+              }else{
+                  console.log( ifra.contentWindow.name ); // 我在example2.com下
+              }
+          }
         </script>
     </body>
 </html>
